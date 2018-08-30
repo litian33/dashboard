@@ -29,7 +29,7 @@ API_ADDR = os.environ.get("API_ADDR","http://127.0.0.1:8080/api/v1")
 PORTAL_DB_HOST = os.environ.get("PORTAL_DB_HOST","127.0.0.1")
 PORTAL_DB_PORT = int(os.environ.get("PORTAL_DB_PORT",3306))
 PORTAL_DB_USER = os.environ.get("PORTAL_DB_USER","root")
-PORTAL_DB_PASS = os.environ.get("PORTAL_DB_PASS","")
+PORTAL_DB_PASS = os.environ.get("PORTAL_DB_PASS","fuzamei")
 PORTAL_DB_NAME = os.environ.get("PORTAL_DB_NAME","falcon_portal")
 
 # alarm database
@@ -37,7 +37,7 @@ PORTAL_DB_NAME = os.environ.get("PORTAL_DB_NAME","falcon_portal")
 ALARM_DB_HOST = os.environ.get("ALARM_DB_HOST","127.0.0.1")
 ALARM_DB_PORT = int(os.environ.get("ALARM_DB_PORT",3306))
 ALARM_DB_USER = os.environ.get("ALARM_DB_USER","root")
-ALARM_DB_PASS = os.environ.get("ALARM_DB_PASS","")
+ALARM_DB_PASS = os.environ.get("ALARM_DB_PASS","fuzamei")
 ALARM_DB_NAME = os.environ.get("ALARM_DB_NAME","alarms")
 
 # ldap config
@@ -67,6 +67,9 @@ LANGUAGES   = {
 # portal site config
 MAINTAINERS = ['root']
 CONTACT = 'root@open-falcon.com'
+
+#thirtparty config
+GRAFANA_ADDR=os.environ.get("GRAFANA_ADDR","127.0.0.1:3000")
 
 try:
     from rrd.local_config import *
