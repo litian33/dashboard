@@ -154,7 +154,7 @@ def ldap_login_user(name, password):
         result = cli.search_s(base_dn, ldap.SCOPE_SUBTREE, search_filter, config.LDAP_ATTRS)
         log.debug("ldap result: %s" % result)
         d = result[0][1]
-        email = d['mail'][0]
+        # email = d['mail'][0]
         cnname = d['cn'][0]
         if 'sn' in d and 'givenName' in d:
             cnname = d['givenName'][0] + ' ' + d['sn'][0]
@@ -164,6 +164,10 @@ def ldap_login_user(name, password):
             phone = d['telephoneNumber'] and d['telephoneNumber'][0] or ""
         else:
             phone = ""
+        if 'mail' in d:
+            email = d['mail'][0]
+        else:
+            email = ""
     
         return {
                 "name": name,

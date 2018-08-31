@@ -41,12 +41,12 @@ ALARM_DB_PASS = os.environ.get("ALARM_DB_PASS","fuzamei")
 ALARM_DB_NAME = os.environ.get("ALARM_DB_NAME","alarms")
 
 # ldap config
-LDAP_ENABLED = os.environ.get("LDAP_ENABLED",False)
-LDAP_SERVER = os.environ.get("LDAP_SERVER","ldap.forumsys.com:389")
-LDAP_BASE_DN = os.environ.get("LDAP_BASE_DN","dc=example,dc=com")
-LDAP_BINDDN_FMT = os.environ.get("LDAP_BINDDN_FMT","uid=%s,dc=example,dc=com")
-LDAP_SEARCH_FMT = os.environ.get("LDAP_SEARCH_FMT","uid=%s")
-LDAP_ATTRS = ["cn","mail","telephoneNumber"]
+LDAP_ENABLED = os.environ.get("LDAP_ENABLED",True)
+LDAP_SERVER = os.environ.get("LDAP_SERVER","192.168.0.137:389")
+LDAP_BASE_DN = os.environ.get("LDAP_BASE_DN","dc=33,dc=cn")
+LDAP_BINDDN_FMT = os.environ.get("LDAP_BINDDN_FMT","cn=%s,dc=33,dc=cn")
+LDAP_SEARCH_FMT = os.environ.get("LDAP_SEARCH_FMT","cn=%s")
+LDAP_ATTRS = ["cn","sn","displayName","mail","email","telephoneNumber"]
 LDAP_TLS_START_TLS = False
 LDAP_TLS_CACERTDIR = ""
 LDAP_TLS_CACERTFILE = "/etc/openldap/certs/ca.crt"
@@ -67,9 +67,10 @@ LANGUAGES   = {
 # portal site config
 MAINTAINERS = ['root']
 CONTACT = 'root@open-falcon.com'
+REGISTER_ENABLE = False
 
 #thirtparty config
-GRAFANA_ADDR=os.environ.get("GRAFANA_ADDR","127.0.0.1:3000")
+GRAFANA_ADDR=os.environ.get("GRAFANA_ADDR","http://192.168.0.137:3000")
 
 try:
     from rrd.local_config import *
